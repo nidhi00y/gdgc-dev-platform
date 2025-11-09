@@ -43,7 +43,7 @@ const Carasoul: NextPage<Props> = ({ list }) => {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       nextSlide()
-    }, 1000)
+    }, 2000)
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
@@ -55,7 +55,7 @@ const Carasoul: NextPage<Props> = ({ list }) => {
   }
 
   const handleMouseLeave = () => {
-    intervalRef.current = setInterval(nextSlide, 3000)
+    intervalRef.current = setInterval(nextSlide, 2000)
   }
 
   const extendedList = [...list, ...list, ...list]

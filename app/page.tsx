@@ -8,10 +8,12 @@ import github from "./assets/github.svg";
 import { Red_Hat_Mono, Space_Grotesk } from "next/font/google";
 import FameCard from "@/components/ui/fame-card";
 import hackmol from "./assets/hackmol.svg";
-import purpleGrid from "./assets/purpleGrid.svg";
 import purpleGridLarge from "./assets/purpleGridLarge.svg";
-import { Card } from "@/components/ui/card";
 import Carasoul from "@/components/carasoul";
+import level2BG from "./assets/level2BG.svg"
+import leadMan from './assets/leadMan.svg'
+import LeadCard from "@/components/lead-card";
+import LeadSlider from "@/components/lead-slider";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 const redHatMono = Red_Hat_Mono({ subsets: ["latin"] });
@@ -42,9 +44,59 @@ export default function Home() {
     },
   ];
   const dummyDomains = ["DevOps","UI/UX","Web Dev","App Dev","AI/ML","WiT","CP"]
+  const leads = [
+    {
+      "name":"Adesh Anurag",
+      "domain":"GDGC NITJ",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Jagjit Singh",
+      "domain":"Web Development",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Irfan Mohammed",
+      "domain":"App Development",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Davinder Singh Sidhu",
+      "domain":"DevSecOps",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Jayant Joshi",
+      "domain":"UI/UX",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Vyomika",
+      "domain":"Women in Tech",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Priyanshu Bharadwaj",
+      "domain":"Competitve Programming",
+      "image": "",
+      "icon": "",
+    },
+    {
+      "name":"Vivek Dhiman",
+      "domain":"AI/ML",
+      "image": "",
+      "icon": "",
+    },
+  ]
   return (
     <div className="flex flex-col gap-5 font-sans">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex flex-col row-start-2 items-center sm:items-start">
         <section className="flex px-[4%] lg:mt-[9%] flex-col md:flex-row justify-between my-[6%] gap-5">
           <div className="flex flex-col justify-center items-center relative md:gap-6 sm:gap-2 lg:gap-8 group">
             <div className="relative flex justify-center items-center">
@@ -179,6 +231,18 @@ export default function Home() {
               <Carasoul list={dummyDomains}/>
             </div>
           </div>
+        </section>
+        <section style={{backgroundImage: `url(${level2BG.src})`}} className="w-full bg-cover h-[133vh]">
+            <div className="flex bg-cover bg-no-repeat bg-center justify-center items-center h-[33vh] w-full">
+              <h1 className={`font-bold ${spaceGrotesk.className} lg:text-8xl md:text-7xl text-6xl text-center`}>LEVEL 02</h1>
+            </div>
+            <div className="h-[100vh] relative flex justify-center items-center">
+              <Image className="absolute bottom-0 right-0" src={leadMan} alt="leadMan" />
+              <div>
+                <h1 className="absolute top-[5%] left-[50%] -translate-x-[50%] text-black text-center font-black lg:text-[200px] text-7xl">LEADS</h1>
+                <LeadSlider list={leads}/>
+              </div>
+            </div>
         </section>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
