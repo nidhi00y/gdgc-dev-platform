@@ -17,6 +17,7 @@ import level1BG from "./assets/level1BG.svg";
 import megaphone from "./assets/megaphone.svg";
 import microphone from "./assets/microphone.svg";
 import EventCard from "@/components/event-card";
+import Footer from "@/components/footer";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 const redHatMono = Red_Hat_Mono({ subsets: ["latin"] });
@@ -123,8 +124,8 @@ export default function Home() {
     },
   ];
   return (
-    <div className="flex flex-col gap-5 font-sans">
-      <main className="flex flex-col row-start-2 items-center sm:items-start">
+    <div className="flex flex-col font-sans">
+      <main className="flex flex-col items-center sm:items-start">
         <section className="flex px-[4%] lg:mt-[9%] flex-col md:flex-row justify-between my-[6%] gap-5">
           <div className="flex flex-col justify-center items-center relative md:gap-6 sm:gap-2 lg:gap-8 group">
             <div className="relative flex justify-center items-center">
@@ -361,9 +362,8 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] py-3 flex-wrap items-center justify-center">
-        &copy; All rights reserved
-        <a href="https://github.com/gdgcnitj"> GDGC NITJ</a>
+      <footer className="flex gap-[24px] flex-wrap items-center justify-center">
+          <Footer/>
       </footer>
     </div>
   );
