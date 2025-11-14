@@ -50,7 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="flex justify-end items-center p-4 gap-6 h-16">
+          <header className="flex items-center">
             <Navbar />
           </header>
           <main>{children}</main>

@@ -17,7 +17,7 @@ type Alumni = {
   name: string;
   role: string;
   imageUrl: string | StaticImageData;
-  color: string; 
+  color: string;
 };
 
 const ALUMNI: Alumni[] = [
@@ -75,7 +75,13 @@ export default function AlumniPage() {
           </h1>
           <div className="w-full mt-8 sm:mt-12 md:mt-16 lg:mt-20">
             <p className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed font-normal font-red-hat-mono">
-              We came here as strangers, we left as a family — and that family never really leaves. Our alumni carry the jokes that still make us laugh, the lessons that still guide us, and the dreams that still push us forward. This isn't just history, it's living proof that what we built together lasts far beyond the campus walls. This is the place where you can meet our alumni and see the journeys they continue to shape.
+              We came here as strangers, we left as a family — and that family
+              never really leaves. Our alumni carry the jokes that still make us
+              laugh, the lessons that still guide us, and the dreams that still
+              push us forward. This isn&apos;t just history, it&apos;s living proof that
+              what we built together lasts far beyond the campus walls. This is
+              the place where you can meet our alumni and see the journeys they
+              continue to shape.
             </p>
             <div className="mt-6 sm:mt-8 md:mt-10 flex items-center justify-end">
               <div className="flex items-center gap-2 sm:gap-3">
@@ -83,34 +89,34 @@ export default function AlumniPage() {
                   <input
                     placeholder="Look for someone special"
                     className="w-64 sm:w-72 md:w-80 lg:w-96 h-8 sm:h-9 md:h-10 border-none bg-[#1C1C1C] pl-8 pr-3 sm:pl-10 sm:pr-4 py-2 text-sm sm:text-base text-white placeholder:text-white/70 outline-none focus:ring-2 focus:ring-white/30 font-red-hat-mono"
-                    style={{ 
-                      fontSize: '16px',
-                      lineHeight: '100%',
-                      letterSpacing: '-0.07em',
-                      borderRadius: '40px'
+                    style={{
+                      fontSize: "16px",
+                      lineHeight: "100%",
+                      letterSpacing: "-0.07em",
+                      borderRadius: "40px",
                     }}
                     suppressHydrationWarning
                   />
-                  <Image 
-                    src={searchIcon} 
-                    alt="Search" 
-                    width={19} 
-                    height={20} 
+                  <Image
+                    src={searchIcon}
+                    alt="Search"
+                    width={19}
+                    height={20}
                     className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 select-none"
                   />
                 </div>
-                <button 
+                <button
                   className="w-10 sm:w-12 md:w-14 h-8 sm:h-9 md:h-10 rounded-full bg-[#1C1C1C] border-0 flex items-center justify-center hover:bg-[#2C2C2C] transition-colors"
                   onClick={() => {
                     // Navigate to filter page
-                    console.log('Navigate to filter page');
+                    console.log("Navigate to filter page");
                   }}
                 >
-                  <Image 
-                    src={filterIcon} 
-                    alt="Filter" 
-                    width={30} 
-                    height={20} 
+                  <Image
+                    src={filterIcon}
+                    alt="Filter"
+                    width={30}
+                    height={20}
                     className="w-7 h-5"
                   />
                 </button>
@@ -141,10 +147,11 @@ export default function AlumniPage() {
               }}
             >
               {/* Gradient border using pseudo-element */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-full p-[3px]"
                 style={{
-                  background: "linear-gradient(137.77deg, #8EEBFF 10.19%, #28D781 37.77%, #F8FF1D 72.7%, #FF1717 97.98%)",
+                  background:
+                    "linear-gradient(137.77deg, #8EEBFF 10.19%, #28D781 37.77%, #F8FF1D 72.7%, #FF1717 97.98%)",
                 }}
               >
                 <div className="w-full h-full rounded-full bg-white"></div>

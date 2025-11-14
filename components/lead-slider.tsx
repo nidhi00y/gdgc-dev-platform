@@ -51,7 +51,7 @@ const Leadcarasoul: NextPage<Props> = ({ list }) => {
     >
       <button
         onClick={prevSlide}
-        className={`absolute hover:brightness-75 transition-all bottom-[4%] border-2 border-white left-0 z-10 bg-[#50FFAF] font-bold w-20 h-20 flex justify-center items-center text-5xl p-3 rounded-full ${inter.className} lg:scale-100 md:scale-75 scale-50 md:bottom-auto md:border-0`}
+        className={`absolute hover:brightness-75 transition-all bottom-[4%] border-2 border-black left-0 z-10 bg-[#50FFAF] font-bold w-20 h-20 flex justify-center items-center text-5xl p-3 rounded-full ${inter.className} lg:scale-100 md:scale-75 scale-50 md:bottom-auto md:border-0`}
       >
         {`<`}
       </button>
@@ -88,7 +88,7 @@ const Leadcarasoul: NextPage<Props> = ({ list }) => {
 
       <button
         onClick={nextSlide}
-        className={`absolute hover:brightness-75 border-2 transition-all border-white bottom-[4%] right-0 z-10 bg-[#50FFAF] font-bold w-20 h-20 flex justify-center items-center text-5xl p-3 rounded-full ${inter.className} lg:scale-100 md:scale-75 scale-50 md:bottom-auto md:border-0`}
+        className={`absolute hover:brightness-75 border-2 transition-all border-black bottom-[4%] right-0 z-10 bg-[#50FFAF] font-bold w-20 h-20 flex justify-center items-center text-5xl p-3 rounded-full ${inter.className} lg:scale-100 md:scale-75 scale-50 md:bottom-auto md:border-0`}
         >
           {`>`}
       </button>
