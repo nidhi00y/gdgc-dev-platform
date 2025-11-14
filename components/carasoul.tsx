@@ -1,65 +1,61 @@
-'use client'
+"use client";
 
-import { NextPage } from 'next'
-import { Card } from './ui/card'
-import { useState, useEffect, useRef } from 'react'
-import carouselArrow from "../app/assets/carouselArrow.svg"
-import Image from 'next/image'
+import { NextPage } from "next";
+import { Card } from "./ui/card";
+import { useState, useEffect, useRef, useCallback } from "react";
+import carouselArrow from "../app/assets/carouselArrow.svg";
+import Image from "next/image";
 
 interface Props {
-  list: Array<string>
+  list: Array<string>;
 }
 
 const Carasoul: NextPage<Props> = ({ list }) => {
-  const colors: Array<string> = ['#FF6A66', '#FDD568', '#28D781', '#69A6FC']
-  const [active, setActive] = useState(0)
-  const [cardsPerView, setCardsPerView] = useState(5)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const colors: Array<string> = ["#FF6A66", "#FDD568", "#28D781", "#69A6FC"];
+  const [active, setActive] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(5);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const prevSlide = useCallback(() => {
+    setActive((prev) => (prev === 0 ? list.length - 1 : prev - 1));
+  }, [list.length]);
+
+  const nextSlide = useCallback(() => {
+    setActive((prev) => (prev === list.length - 1 ? 0 : prev + 1));
+  }, [list.length]);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) setCardsPerView(5)
-      else if (window.innerWidth >= 768) setCardsPerView(3)
-      else setCardsPerView(1)
-    }
+      if (window.innerWidth >= 1280) setCardsPerView(5);
+      else if (window.innerWidth >= 768) setCardsPerView(3);
+      else setCardsPerView(1);
+    };
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-  const prevSlide = () => {
-    setActive((prev) =>
-      prev === 0 ? list.length - 1 : prev - 1
-    )
-  }
-
-  const nextSlide = () => {
-    setActive((prev) =>
-      prev === list.length - 1 ? 0 : prev + 1
-    )
-  }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [nextSlide]);
 
   // ⏱️ Auto-scroll every 3s
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      nextSlide()
-    }, 2000)
+      nextSlide();
+    }, 2000);
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [list.length])
-
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [list.length, nextSlide]);
 
   const handleMouseEnter = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-  }
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
 
   const handleMouseLeave = () => {
-    intervalRef.current = setInterval(nextSlide, 2000)
-  }
+    intervalRef.current = setInterval(nextSlide, 2000);
+  };
 
-  const extendedList = [...list, ...list, ...list]
-  const middleIndex = Math.floor(extendedList.length / 3)
+  const extendedList = [...list, ...list, ...list];
+  const middleIndex = Math.floor(extendedList.length / 3);
 
   return (
     <div
@@ -71,21 +67,24 @@ const Carasoul: NextPage<Props> = ({ list }) => {
         onClick={prevSlide}
         className="absolute -left-[4%] z-10 hover:brightness-80 w-[10%]"
       >
-        <Image src={carouselArrow} alt='left'/>
+        <Image src={carouselArrow} alt="left" />
       </button>
 
       <div className="overflow-hidden w-[90vw]">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{
-            transform: `translateX(-${((active + middleIndex) * 100) / cardsPerView}%)`,
+            transform: `translateX(-${
+              ((active + middleIndex) * 100) / cardsPerView
+            }%)`,
           }}
         >
           {extendedList.map((d, i) => {
-            const realIndex = (i - active + extendedList.length) % extendedList.length
-            const centerIndex = Math.floor(cardsPerView / 2)
-            const offset = (i - (active + middleIndex)) % extendedList.length
-            const absOffset = Math.abs(offset % list.length)
+            const realIndex =
+              (i - active + extendedList.length) % extendedList.length;
+            const centerIndex = Math.floor(cardsPerView / 2);
+            const offset = (i - (active + middleIndex)) % extendedList.length;
+            const absOffset = Math.abs(offset % list.length);
 
             return (
               <div
@@ -106,7 +105,7 @@ const Carasoul: NextPage<Props> = ({ list }) => {
                   </Card>
                 </Card>
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -115,10 +114,10 @@ const Carasoul: NextPage<Props> = ({ list }) => {
         onClick={nextSlide}
         className="absolute -right-[4%] z-10 rotate-180 hover:brightness-80 w-[10%]"
       >
-        <Image src={carouselArrow} alt='right' />
+        <Image src={carouselArrow} alt="right" />
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Carasoul
+export default Carasoul;

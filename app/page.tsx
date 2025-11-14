@@ -178,9 +178,9 @@ export default function Home() {
             <p
               className={`lg:text-2xl md:text-xl text-lg ${redHatMono.className}`}
             >
-              We're not just another events club. At GDG NITJ, we're building a{" "}
-              <span className="text-[#FBBC04]">community</span> where everyone
-              is both a learner and a teacher. Our{" "}
+              We&apos;re not just another events club. At GDG NITJ, we&apos;re
+              building a <span className="text-[#FBBC04]">community</span> where
+              everyone is both a learner and a teacher. Our{" "}
               <span className="text-[#EA4335]">goal</span> is to create a
               dynamic environment for collective{" "}
               <span className="text-[#34A853]">growth</span>. We bring this{" "}
@@ -363,7 +363,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="flex gap-[24px] flex-wrap items-center justify-center">
-          <Footer/>
+        <Footer />
       </footer>
     </div>
   );

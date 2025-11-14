@@ -62,7 +62,7 @@ export default function SignUpForm({
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
           <CardDescription>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/sign-up" className="font-bold hover:outline">
               Sign Up
             </Link>
